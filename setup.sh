@@ -10,6 +10,8 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
+aws --version >/dev/null || { echo "AWS CLI doesn't exist on this machine. Please install it and try again." && exit 1; }
+
 if [[ -n "$2" ]]; then
   TRUSTDOME_READ_POLICY="file://$2"
 fi
